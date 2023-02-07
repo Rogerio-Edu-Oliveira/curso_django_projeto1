@@ -82,7 +82,7 @@ class RegisterForm(forms.ModelForm):
                 'User e-mail is already in use', code='invalid',
             )
 
-        return email
+        return email.lower()
 
     def clean(self):
         cleaned_data = super().clean()
