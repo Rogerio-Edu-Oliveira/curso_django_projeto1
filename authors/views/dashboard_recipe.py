@@ -48,6 +48,11 @@ class DashboardRecipe(View):
             }
         )
 
+    def get(self, request, id=None):
+        recipe = self.get_recipe(id)
+        form = AuthorRecipeForm(instance=recipe)
+        return self.render_recipe(form)
+
     def post(self, request, id=None):
         recipe = self.get_recipe(id)
         form = AuthorRecipeForm(
